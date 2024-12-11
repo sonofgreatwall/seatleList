@@ -3,8 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useEffect } from 'react';
 
-// // Fix default icon issue in Leaflet
-// delete L.Icon.Default.prototype._getIconUrl;
+// Fix default icon issue in Leaflet
 L.Icon.Default.mergeOptions({
     iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
     iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -13,7 +12,7 @@ L.Icon.Default.mergeOptions({
 
 const MapComponent = () => {
     useEffect(() => {
-        // Any browser-specific logic can be handled here
+        // Any additional setup or resource loading can be done here
     }, []);
 
     return (

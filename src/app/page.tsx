@@ -5,19 +5,24 @@ import Results from "./ui/Results";
 import Navtab from "./ui/Navtab";
 import { useState } from "react";
 
+// Dynamically import the MapComponent with SSR disabled
 const MapComponent = dynamic(() => import("./ui/components/MapComponent"), {
   ssr: false,
 });
 
 export default function Home() {
   const [toggleMap, setToggleMap] = useState<number>(1);
-  // const [toggleCalender, setToggleCalender] = useState<number>(0);
+
   return (
     <div>
       <Navtab />
-      <div className={`main ${toggleMap == 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-          {toggleMap == 1 ? <div className="map ss"><MapComponent /></div> : ""}
-        
+      <div className={`main ${toggleMap === 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+        {/* Ensure the MapComponent is only rendered when needed */}
+        {toggleMap === 1 && (
+          <div className="map">
+            <MapComponent key={toggleMap} /> {/* Unique key to ensure re-initialization if necessary */}
+          </div>
+        )}
         <div className="max-w-[1100px] mx-auto">
           <div className="filter-results-container">
             <div className="filter">
