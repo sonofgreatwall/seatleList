@@ -8,7 +8,7 @@ export default function TopBar(){
     const [sideBarActive, setSideBarActive] = useState(false)
     
     return(
-        <div className="md:relative fixed z-40 top-0 left-0 w-screen flex justify-between items-center px-4 md:px-10 min-h-16 md:py-5 py-4 text-sm bg-white">
+        <div className="md:relative fixed z-40 top-0 left-0 w-full flex justify-between items-center px-4 md:px-10 min-h-16 md:py-5 py-4 text-sm bg-white">
           <div className="gap-8 items-center hidden md:flex font-semibold">
             <Link href="." className="text-center inline-block">Blog</Link>
             <Link href="." className="text-center inline-block">FAQ</Link>
