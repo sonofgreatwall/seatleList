@@ -10,7 +10,7 @@ export default function Navtab() {
     { name: "For Rent", href: "./" },
     { name: "For Sale", href: "./" },
     { name: "Roommates", href: "./" },
-    { name: "Reviews", href: "./" },
+    { name: "Review", href: "./" },
   ];
 
   return (
