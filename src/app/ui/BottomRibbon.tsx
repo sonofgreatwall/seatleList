@@ -14,7 +14,7 @@ export default function Navtab() {
   ];
 
   return (
-    <nav className="flex items-center bg-gray-100 rounded-full shadow-md p-1 space-x-2 w-max m-6 navtab">
+    <nav className="hidden lg:flex items-center bg-gray-100 rounded-full shadow-md p-1 space-x-2 w-max m-6 navtab fixed bottom-5 left-[50%] translate-x-[-50%]  ">
       {tabs.map(({ name, href }) => (
         <Link
           key={name}
