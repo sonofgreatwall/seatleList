@@ -4,6 +4,7 @@ import Filter from "./ui/Filter";
 import Results from "./ui/Results";
 import Navtab from "./ui/Navtab";
 import { useState } from "react";
+import BottomRibbon from "./ui/BottomRibbon";
 
 // Dynamically import the MapComponent with SSR disabled
 const MapComponent = dynamic(() => import("./ui/components/MapComponent"), {
@@ -34,6 +35,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <BottomRibbon />
     </div>
   );
 }
