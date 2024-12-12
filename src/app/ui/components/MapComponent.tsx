@@ -12,7 +12,6 @@ L.Icon.Default.mergeOptions({
 
 const MapComponent = () => {
     useEffect(() => {
-        // Any additional setup or resource loading can be done here
     }, []);
 
     return (

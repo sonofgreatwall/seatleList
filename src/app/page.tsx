@@ -18,12 +18,12 @@ export default function Home() {
     <div>
       <Navtab />
       <div className={`main ${toggleMap === 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-        {/* Ensure the MapComponent is only rendered when needed */}
-        {toggleMap === 1 && (
+        {/* {toggleMap === 1 && (
           <div className="map">
-            <MapComponent key={toggleMap} /> {/* Unique key to ensure re-initialization if necessary */}
+            <MapComponent key={toggleMap} />
           </div>
-        )}
+        )} */}
+        sdasa
         <div className="max-w-[1100px] mx-auto">
           <div className="filter-results-container">
             <div className="filter">

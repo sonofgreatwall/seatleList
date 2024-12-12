@@ -250,7 +250,7 @@ const Results: React.FC<ResultsProps> = ({ toggleMap, setToggleMap }) => {
         </div>
       </div>
       <h1 className="text-2xl font-bold mb-2">67 Results</h1>
-      <div className="grid gap-6">
+      <div className="grid gap-6 mb-11">
         {rentals.slice(0, cardNum).map((rental, index) => (
           <RentalCard key={index} {...rental} />
         ))}
