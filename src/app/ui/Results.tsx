@@ -234,7 +234,7 @@ const Results: React.FC<ResultsProps> = ({ toggleMap, setToggleMap }) => {
   const [cardNum, setCardNum] = useState<number>(2)
   return (
     <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-10 lg:mb-4">
         <div className="flex gap-4">
           {/* <Button onClick={() => { toggleMap == 1 ? setToggleMap(0) : setToggleMap(1) }}>Local Map</Button> */}
           <Button onClick={() => {
