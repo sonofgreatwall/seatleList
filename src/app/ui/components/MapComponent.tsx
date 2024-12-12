@@ -1,9 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect } from 'react';
 
-// Fix default icon issue in Leaflet
 L.Icon.Default.mergeOptions({
     iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
     iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -11,11 +9,12 @@ L.Icon.Default.mergeOptions({
 });
 
 const MapComponent = () => {
-    useEffect(() => {
-    }, []);
-
     return (
-        <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '100%', width: '100%' }}>
+        <MapContainer
+            center={[51.505, -0.09]}
+            zoom={13}
+            style={{ height: '100vh', width: '100%' }}
+        >
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="&copy; OpenStreetMap contributors"

@@ -25,7 +25,7 @@ export default function Navtab() {
                         }`}
                     onClick={() => setActiveTab(name)}
                 >
-                    <Image src={href} width={30} height={30} alt={name} className="" />
+                    <Image src={href} width={20} height={20} alt={name} className="" />
                 </Link>
 
             ))}
