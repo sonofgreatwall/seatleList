@@ -7,11 +7,10 @@ export default function Navtab() {
 
   const tabs = [
     { name: "All", href: "./" },
-    { name: "Active", href: "./" },
-    { name: "New", href: "./" },
-    { name: "Closing Soon", href: "./" },
-    { name: "Reviewing", href: "./" },
-    { name: "Completed", href: "./" },
+    { name: "For Rent", href: "./" },
+    { name: "For Sale", href: "./" },
+    { name: "Roommates", href: "./" },
+    { name: "Reviews", href: "./" },
   ];
 
   return (
