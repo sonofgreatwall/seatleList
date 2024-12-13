@@ -14,7 +14,7 @@ export default function Navtab() {
   ];
 
   return (
-    <nav className="flex items-center bg-gray-100 rounded-full shadow-md p-1 space-x-2 w-max navtab mx-auto lg:m-6 ">
+    <nav className="hidden md:flex items-center bg-gray-100 rounded-full shadow-md p-1 space-x-2 w-max navtab mx-auto lg:m-6 ">
       {tabs.map(({ name, url }) => (
         <Link
           key={name}

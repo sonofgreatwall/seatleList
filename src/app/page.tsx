@@ -20,7 +20,8 @@ export default function Home() {
       <div className={`main ${toggleMap === 1 ? "grid-cols-2" : "grid-cols-1"}`}>
         {toggleMap === 1 && (
           <div className="map">
-            <MapComponent/>
+            {/* <MapComponent/> */}
+            asdasd
           </div>
         )}
         {/* sdasa */}
