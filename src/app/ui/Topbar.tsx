@@ -45,7 +45,7 @@ export default function TopBar() {
           <button>
             <Image src={"/user.svg"} width={40} height={40} alt="user-icon" />
           </button>
-          <div className="flex flex-col shadow-lg absolute left-[-80px] top-10">
+          <div className="flex flex-col shadow-lg absolute left-[-80px] top-10 bg-white">
             <a href="." className="px-8 py-4 hover:bg-gray-200 flex justify-between w-full inline-block">Login<Image src={"/login.svg"} width={20} height={20} alt="login-icon" /></a>
             <a href="." className="px-8 py-4 hover:bg-gray-200  flex justify-between w-full inline-block">Register<Image src={"/register.svg"} width={20} height={20} alt="register-icon" /></a>
           </div>

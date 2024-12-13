@@ -176,7 +176,7 @@ body {
     grid-column: 1;
     grid-row: span 2;
     text-align: center;
-    height: 80vh; 
+    height: 100vh; 
     position: sticky; 
     top: 0; 
   }
@@ -232,6 +232,7 @@ body {
   .main {
     padding: 5px;
     grid-gap: 5px;
+    margin-top: 70px;
   }
 
   .icons {

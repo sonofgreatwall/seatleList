@@ -19,9 +19,8 @@ export default function Home() {
       <Navtab />
       <div className={`main ${toggleMap === 1 ? "grid-cols-2" : "grid-cols-1"}`}>
         {toggleMap === 1 && (
-          <div className="map">
+          <div className="map z-[-10]">
             <MapComponent/>
-            {/* asdasd */}
           </div>
         )}
         {/* sdasa */}
