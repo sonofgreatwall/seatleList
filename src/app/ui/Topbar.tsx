@@ -43,10 +43,10 @@ export default function TopBar() {
       <div onClick={() => setSideBarActive(false)} className={`w-fit md:px-4 grid md:flex md:gap-2 items-center ${sideBarActive ? '' : ''}`}>
 
         <div className="relative">
-          <button onClick={() => { authButtonActive === 1 ? setAuthButtonActive(0) : setAuthButtonActive(1) }}>
+          <button onClick={() => { if(authButtonActive === 1) setAuthButtonActive(0); else setAuthButtonActive(1); }}>
             <Image src={"/user.svg"} width={40} height={40} alt="user-icon" />
           </button>
-          <div className={` flex-col shadow-lg absolute left-[-80px] top-10 bg-white`}>
+          <div className={`${authButtonActive === 1 ? `flex ` : `hidden `} flex-col shadow-lg absolute left-[-80px] top-10 bg-white`}>
             <a href="." className="px-8 py-4 hover:bg-gray-200 flex justify-between w-full inline-block">Login<Image src={"/login.svg"} width={20} height={20} alt="login-icon" /></a>
             <a href="." className="px-8 py-4 hover:bg-gray-200  flex justify-between w-full inline-block">Register<Image src={"/register.svg"} width={20} height={20} alt="register-icon" /></a>
           </div>
