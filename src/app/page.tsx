@@ -13,14 +13,19 @@ const MapComponent = dynamic(() => import("./ui/components/MapComponent"), {
 
 export default function Home() {
   const [toggleMap, setToggleMap] = useState<number>(1);
+  const [activeMap, setActiveMap] = useState<number>(0);
+  console.log(activeMap);
+  
 
   return (
     <div>
       <Navtab />
-      <div className={`main ${toggleMap === 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+      <div className={`main ${toggleMap === 1 ? "grid-cols-2" : "grid-cols-1"}`} onClick={() => {setActiveMap(0)}}>
         {toggleMap === 1 && (
-          <div className="map z-[-10]">
-            <MapComponent/>
+          <div onDoubleClick={() => { setActiveMap(1); }}>
+            <div className={`map ${activeMap == 1? `z-10` : `z-[-30]`} `} >
+              <MapComponent />
+            </div>
           </div>
         )}
         {/* sdasa */}

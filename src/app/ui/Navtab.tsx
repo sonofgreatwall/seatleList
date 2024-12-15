@@ -11,6 +11,7 @@ export default function Navtab() {
     { name: "For Sale", href: "./", url: "/navbar-imgs/for-sale.svg" },
     { name: "Roommates", href: "./", url: "/navbar-imgs/roommate.svg" },
     { name: "Review", href: "./", url: "/navbar-imgs/review.svg" },
+    { name: "Shop", href: "./", url: "/navbar-imgs/shopping.svg" },
   ];
 
   return (
