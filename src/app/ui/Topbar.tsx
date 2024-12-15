@@ -30,10 +30,10 @@ export default function TopBar() {
             ">SeattleListed</Link>
       </div>
       <div
-        className={`h-screen z-[1000] p-10 w-screen fixed topbar top-0 left-0 transition-all ease-in-out duration-500 ${sideBarActive ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`h-full w-full z-[1000]  fixed bg-[#00000031] topbar top-0 left-0  ${sideBarActive ? 'translate-x-0' : '-translate-x-full'}`}
         onClick={() => setSideBarActive(false)}
       >
-        <div className="gap-8 items-center flex flex-col text-lg">
+        <div className={`bg-white h-full w-60 gap-8 items-center flex flex-col text-lg transition-all ease-in-out duration-500 ${sideBarActive ? 'translate-x-0' : '-translate-x-full'}`}>
           <Link href="." className="text-center inline-block">Blog</Link>
           <Link href="." className="text-center inline-block">FAQ</Link>
           <Link href="." className="text-center inline-block">Event</Link>
