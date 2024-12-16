@@ -6,6 +6,7 @@ import Filter from "./ui/Filter";
 import Results from "./ui/Results";
 import Navtab from "./ui/Navtab";
 import BottomRibbon from "./ui/BottomRibbon";
+import axios from "axios";
 
 // Dynamically import the MapComponent with SSR disabled
 const MapComponent = dynamic(() => import("./ui/components/MapComponent"), {
@@ -13,9 +14,30 @@ const MapComponent = dynamic(() => import("./ui/components/MapComponent"), {
 });
 
 export default function Home() {
+
+
+  const [filterResult, setFilterResult] = useState<object>({});
+
+  function filter() {
+    axios.get('https://seattlelisted.com/json/get_json_apartments.php?page=0&move_in_after=2024-12-12&what=131&sqft=&Neighborhoods=109&where_city=165&propertyType=172&where=165&when=108&price_min=900&Lease_Length=&Deposit_Amount=&Credit_Score=&price_max=2500&how_much=111&bedrooms=139&options=&sort=l_price&bathrooms=140')
+      .then(response => {
+        setFilterResult(JSON.parse(response.data));
+        return response.data;  // Return the array data
+      })
+      .catch(error => {
+        console.error(error);
+        return null;  // Handle error
+      });
+  }
+
+  useEffect(() => {
+    filter();
+  }, [])
+  
+  console.log(filterResult)
   const [toggleMap, setToggleMap] = useState<number>(1);
   const [activeMap, setActiveMap] = useState<number>(0);
-  const mapRef = useRef<HTMLDivElement>(null); 
+  const mapRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (mapRef.current && !mapRef.current.contains(event.target as Node)) {
@@ -46,9 +68,8 @@ export default function Home() {
           >
             <div
               ref={mapRef} // Attach the ref to the map container
-              className={`map ${
-                activeMap === 1 ? "pointer-events-auto" : "pointer-events-none"
-              }`}
+              className={`map ${activeMap === 1 ? "pointer-events-auto" : "pointer-events-none"
+                }`}
             >
               <MapComponent />
             </div>
@@ -60,7 +81,7 @@ export default function Home() {
               <Filter />
             </div>
             <div className="results">
-              <Results toggleMap={toggleMap} setToggleMap={setToggleMap} />
+              <Results toggleMap={toggleMap} setToggleMap={setToggleMap} filterResult={filterResult}/>
             </div>
           </div>
         </div>

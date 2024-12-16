@@ -10,26 +10,28 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
+
 const RealEstateFilter = () => {
+
   const [priceRange, setPriceRange] = useState([900, 2500]);
 
   return (
     <Card className="w-full p-4 space-y-6">
       <div className="flex flex-col sm:flex-row gap-2">
-        <Button 
-          variant="default" 
+        <Button
+          variant="default"
           className="w-full relative"
         >
           For Rent <span className="ml-2 badge badge-danger">335</span>
         </Button>
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           className="w-full"
         >
           For Sale
         </Button>
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           className="w-full relative"
         >
           Landlord Reviews <span className="ml-2 badge badge-danger">1</span>
@@ -135,8 +137,8 @@ const RealEstateFilter = () => {
         {["Cats", "Dogs", "Balcony", "Parking", "MFTE"].map((feature) => (
           <div key={feature} className="flex items-center space-x-2">
             <Checkbox id={feature.toLowerCase()} />
-            <label 
-              htmlFor={feature.toLowerCase()} 
+            <label
+              htmlFor={feature.toLowerCase()}
               className="text-sm"
             >
               {feature}
