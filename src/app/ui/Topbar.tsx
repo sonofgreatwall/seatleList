@@ -10,7 +10,7 @@ export default function TopBar() {
   const [authButtonActive, setAuthButtonActive] = useState<number>(0);
 
   return (
-    <div className="md:relative z-[1000] top-0 left-0 w-full flex justify-between items-center px-4 md:px-10 min-h-16 md:py-5 py-4 text-sm bg-white">
+    <div className="md:relative z-[4000] top-0 left-0 w-full flex justify-between items-center px-4 md:px-10 min-h-16 md:py-5 py-4 text-sm bg-white">
       <div className="gap-8 items-center hidden md:flex font-semibold">
         <Link href="." className="text-center inline-block">Blog</Link>
         <Link href="." className="text-center inline-block">FAQ</Link>
@@ -30,7 +30,7 @@ export default function TopBar() {
             ">SeattleListed</Link>
       </div>
       <div
-        className={`h-full w-full z-[1000]  fixed bg-[#00000031] topbar top-0 left-0  ${sideBarActive ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`h-full w-full z-[4000]  fixed bg-[#00000031] topbar top-0 left-0  ${sideBarActive ? 'translate-x-0' : '-translate-x-full'}`}
         onClick={() => setSideBarActive(false)}
       >
         <div className={`bg-white h-full w-60 gap-8 items-center flex flex-col text-lg transition-all ease-in-out duration-500 ${sideBarActive ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -46,7 +46,7 @@ export default function TopBar() {
           <button onClick={() => { if(authButtonActive === 1) setAuthButtonActive(0); else setAuthButtonActive(1); }}>
             <Image src={"/user.svg"} width={40} height={40} alt="user-icon" />
           </button>
-          <div className={`${authButtonActive === 1 ? `flex ` : `hidden `} flex-col shadow-lg absolute left-[-80px] top-10 bg-white`}>
+          <div className={`${authButtonActive === 1 ? `flex ` : `hidden `} flex-col shadow-lg absolute left-[-80px] z-[4000] top-10 bg-white`}>
             <a href="." className="px-8 py-4 hover:bg-gray-200 flex justify-between w-full inline-block">Login<Image src={"/login.svg"} width={20} height={20} alt="login-icon" /></a>
             <a href="." className="px-8 py-4 hover:bg-gray-200  flex justify-between w-full inline-block">Register<Image src={"/register.svg"} width={20} height={20} alt="register-icon" /></a>
           </div>
