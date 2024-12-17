@@ -44,29 +44,24 @@ const RentalCard: React.FC<RentalCardProps> = ({
   price,
   Fulladdress,
   Featured_Image,
-  // price_change,
-  // on_the_market_days,
+  price_change,
+  on_the_market_days,
   // listing_id,
   // sqft,
-  // address_id,
   bathrooms,
   bedrooms,
-  deal,
   // Deposit_Amount,
   // Lease_Length,
   // apt_name,
   // suburb,
-  // distance,
+  distance,
   // listing_website,
-  // Social_Medias,
   Average_Rating,
   Review_Count,
-  // Opening_Hours,
-  // Phone,
-  // name_contact,
-  // email_contact,
-  // Website,
-  // Email,
+  Opening_Hours,
+  Phone,
+  Website,
+  Email,
   // id,
   // Name,
   // latitude,
@@ -77,31 +72,41 @@ const RentalCard: React.FC<RentalCardProps> = ({
   return (
     <Card className="flex gap-4 p-4">
       <div className="w-1/4">
-        <img src={Featured_Image} width={300} height={300} alt={Fulladdress} className="rounded-md w-full" />
-      </div>
-      <div className="flex flex-col w-3/4">
-        <CardHeader>
-          <CardTitle className="text-lg font-bold">{Fulladdress}</CardTitle>
-          <span className="text-emerald-500 text-xl">${price}</span>
-        </CardHeader>
-        <CardContent className="flex">
-          <div className="w-[50%] p-2">
-            <p className="text-sm text-gray-700">Available Date: {available_date}</p>
-            <div className="flex justify-center items-center gap-2 mt-2">
-              {Average_Rating && <Badge variant="outline"> {Average_Rating}</Badge>}
-              {Review_Count && <Badge variant="outline"> {Review_Count} Reviews</Badge>}
-            </div>
-            <div className="mt-2 text-red-500 text-sm">Deal: {deal}</div>
-            {bedrooms && <Image src={"/bedroom.svg"} width={20} height={20} alt="bedroom"/>}
-            {bathrooms && <Image src={"/bathroom.svg"} width={20} height={20} alt="bedroom"/>}
-          </div>
-          <div className="w-[50%] p-2">
-          </div>
-        </CardContent>
-        <div className="flex gap-4 mt-4 justify-center">
+        <img src={Featured_Image} alt={Fulladdress} className="rounded-md w-[200px] h-[150px]" />
+        <div className="flex gap-4 mt-4 justify-center flex-col">
           <Button variant="outline">Book a Tour</Button>
           <Button>More Info</Button>
         </div>
+      </div>
+      <div className="flex flex-col w-3/4">
+        <CardHeader className="flex">
+          <div>
+            <CardTitle className="text-lg font-bold">{Fulladdress}</CardTitle>
+            <span className="text-emerald-500 text-xl">${price}</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <div className="flex w-fit">
+              {bedrooms && <Image src={"/bedroom.svg"} width={20} height={20} alt="bedroom" className="mx-2" />} {bedrooms}
+              {bathrooms && <Image src={"/bathroom.svg"} width={20} height={20} alt="bedroom" className="mx-2" />} {bathrooms}
+            </div>
+            <div className="flex justify-center items-center gap-2 mt-2">
+              {Average_Rating && <Badge variant="outline"> {Average_Rating}</Badge>}
+              {Review_Count && <Badge variant="outline"> {Review_Count} Reviews</Badge>}
+              {Website && <a className="text-sm text-gray-700" href={Website}><Image src={"/link.svg"} width={20} height={20} alt="link" /></a>}
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="flex">
+          <div className="p-2 flex flex-col items-start">
+            <p className="py-2 text-sm text-gray-700">Available Date: {available_date}</p>
+            {Opening_Hours && <p className="py-2 text-sm text-gray-700 text-left">Opening hours: <br/><span className="pl-3 inline-block">{Opening_Hours}</span></p>}
+            {price_change && <p className="py-2 text-sm text-gray-700">Price Change: {price_change}</p>}
+            <p className="py-2 text-sm text-gray-700">On the market days: {on_the_market_days}</p>
+            <p className="py-2 text-sm text-gray-700">Distance: {distance}</p>
+            {Phone && <p className="py-2 text-sm text-gray-700">Phone: {Phone}</p>}
+            {Email && <p className="py-2 text-sm text-gray-700">Email: {Email}</p>}
+          </div>
+        </CardContent>
       </div>
     </Card>
   );

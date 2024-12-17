@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 import RentalCard from "./RentalCard";
 import { Button } from "@/components/ui/button";
 import { FilterResult } from "../listingTypes";
@@ -9,11 +9,13 @@ interface ResultsProps {
   toggleMap: number;  // Use the correct type based on your usage
   setToggleMap: (value: number) => void;  // Adjust this based on how you want to change the value
   filterResult: FilterResult;
+  setPage: (value: number) => void; 
+  page: number;
 }
 
 
-const Results: React.FC<ResultsProps> = ({ toggleMap, setToggleMap, filterResult }) => {
-  const [cardNum, setCardNum] = useState<number>(2)
+const Results: React.FC<ResultsProps> = ({ toggleMap, setToggleMap, filterResult, setPage, page }) => {
+  // const [cardNum, setCardNum] = useState<number>(6)
   return (
     <div className="p-6  mb-10 lg:mb-4">
       <div className="flex justify-between items-center">
@@ -30,12 +32,12 @@ const Results: React.FC<ResultsProps> = ({ toggleMap, setToggleMap, filterResult
           <Button variant="outline">Create Alert For Rent Listing</Button>
         </div>
       </div>
-      <h1 className="text-2xl font-bold mb-2">{filterResult.total_results} Results</h1>
+      <h1 className="text-2xl font-bold my-6">{filterResult.total_results} Results</h1>
       <div className="grid gap-6 mb-11">
-        {filterResult.listings.slice(0, cardNum).map((rental, index) => (
+        {filterResult.listings.map((rental, index) => (
           <RentalCard key={index} {...rental} />
         ))}
-        <Button variant="outline" onClick={() => setCardNum(cardNum + 3)}>Read More</Button>
+        <Button variant="outline" onClick={() => {setPage(page + 1); console.log(page);}}>Read More</Button>
       </div>
     </div>
   );

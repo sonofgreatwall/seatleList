@@ -22,14 +22,16 @@ export default function Home() {
     listings: [],
   });
 
+  const [page, setPage] = useState<number>(0);
+
   function filter() {
-    axios.get('https://seattlelisted.com/json/get_json_apartments.php?page=0&move_in_after=2024-12-12&what=131&sqft=&Neighborhoods=109&where_city=165&propertyType=172&where=165&when=108&price_min=900&Lease_Length=&Deposit_Amount=&Credit_Score=&price_max=2500&how_much=111&bedrooms=139&options=&sort=l_price&bathrooms=140')
+    axios.get('https://seattlelisted.com/json/get_json_apartments.php?page=' + page + '&move_in_after=2024-12-12&what=131&sqft=&Neighborhoods=109&where_city=165&propertyType=172&where=165&when=108&price_min=900&Lease_Length=&Deposit_Amount=&Credit_Score=&price_max=2500&how_much=111&bedrooms=139&options=&sort=l_price&bathrooms=140')
       .then(response => {
         const { total_results, ...data } = response.data;
         setFilterResult({
           total_results,
           listings: Object.values(data),
-           // Assume data has the listings array
+          // Assume data has the listings array
         });
       })
       .catch(error => {
@@ -40,7 +42,7 @@ export default function Home() {
 
   useEffect(() => {
     filter();
-  }, []);
+  }, [page]);
 
   console.log(filterResult.total_results, filterResult.listings);
 
@@ -91,7 +93,7 @@ export default function Home() {
               <Filter />
             </div>
             <div className="results">
-              <Results toggleMap={toggleMap} setToggleMap={setToggleMap} filterResult={filterResult} />
+              <Results toggleMap={toggleMap} setToggleMap={setToggleMap} filterResult={filterResult} setPage = {setPage} page={page}/>
             </div>
           </div>
         </div>
