@@ -4,48 +4,99 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
 interface RentalCardProps {
-  thumbnail: string;
-  address: string;
-  rent: number;
-  description: string;
-  ratings: {
-    google: string;
-    trusty: string;
-  };
-  status: string;
-  deal: string;
+  available_date: string;
+  price: string;
+  Fulladdress: string;
+  Featured_Image: string;
+  price_change?: string;
+  on_the_market_days?: string;
+  listing_id?: string;
+  sqft?: string;
+  address_id?: string;
+  bathrooms?: string;
+  bedrooms?: string;
+  deal?: string;
+  Deposit_Amount?: string;
+  Lease_Length?: string;
+  apt_name?: string;
+  suburb?: string;
+  distance?: string;
+  listing_website?: string;
+  Social_Medias?: string;
+  Average_Rating?: string;
+  Review_Count?: string;
+  Opening_Hours?: string;
+  Phone?: string;
+  name_contact?: string;
+  email_contact?: string;
+  Website?: string;
+  Email?: string;
+  id?: null;
+  Name?: string;
+  latitude?: string;
+  longitude?: string;
+  price_max?: string;
+  price_min?: string;
 }
 
 const RentalCard: React.FC<RentalCardProps> = ({
-  thumbnail,
-  address,
-  rent,
-  description,
-  ratings,
-  status,
+  available_date,
+  price,
+  Fulladdress,
+  Featured_Image,
+  // price_change,
+  // on_the_market_days,
+  // listing_id,
+  // sqft,
+  // address_id,
+  bathrooms,
+  bedrooms,
   deal,
+  // Deposit_Amount,
+  // Lease_Length,
+  // apt_name,
+  // suburb,
+  // distance,
+  // listing_website,
+  // Social_Medias,
+  Average_Rating,
+  Review_Count,
+  // Opening_Hours,
+  // Phone,
+  // name_contact,
+  // email_contact,
+  // Website,
+  // Email,
+  // id,
+  // Name,
+  // latitude,
+  // longitude,
+  // price_max,
+  // price_min,
 }) => {
   return (
     <Card className="flex gap-4 p-4">
-      {/* Image */}
       <div className="w-1/4">
-        <Image  src={thumbnail} width={300} height={300} alt={address} className="rounded-md w-full" />
+        <img src={Featured_Image} width={300} height={300} alt={Fulladdress} className="rounded-md w-full" />
       </div>
-
-      {/* Info */}
       <div className="flex flex-col w-3/4">
         <CardHeader>
-          <CardTitle className="text-lg font-bold">{address}</CardTitle>
-          <span className="text-emerald-500 text-xl">${rent}</span>
+          <CardTitle className="text-lg font-bold">{Fulladdress}</CardTitle>
+          <span className="text-emerald-500 text-xl">${price}</span>
         </CardHeader>
-        <CardContent>
-          <p className="text-sm text-gray-700">{description}</p>
-          <div className="flex justify-center items-center gap-2 mt-2">
-            <Badge variant="outline">{ratings.google}</Badge>
-            <Badge variant="outline">{ratings.trusty}</Badge>
+        <CardContent className="flex">
+          <div className="w-[50%] p-2">
+            <p className="text-sm text-gray-700">Available Date: {available_date}</p>
+            <div className="flex justify-center items-center gap-2 mt-2">
+              {Average_Rating && <Badge variant="outline"> {Average_Rating}</Badge>}
+              {Review_Count && <Badge variant="outline"> {Review_Count} Reviews</Badge>}
+            </div>
+            <div className="mt-2 text-red-500 text-sm">Deal: {deal}</div>
+            {bedrooms && <Image src={"/bedroom.svg"} width={20} height={20} alt="bedroom"/>}
+            {bathrooms && <Image src={"/bathroom.svg"} width={20} height={20} alt="bedroom"/>}
           </div>
-          <div className="mt-2 text-red-500 text-sm">{status}</div>
-          <div className="text-gray-500 text-sm">Deal: {deal}</div>
+          <div className="w-[50%] p-2">
+          </div>
         </CardContent>
         <div className="flex gap-4 mt-4 justify-center">
           <Button variant="outline">Book a Tour</Button>

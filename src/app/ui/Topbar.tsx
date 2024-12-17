@@ -52,12 +52,6 @@ export default function TopBar() {
           </div>
 
         </div>
-        {/* <Link href="">
-            <Button className="w-full hidden md:block">Log in</Button>
-          </Link>
-          <Link href="/register">
-            <Button className="py-4" variant="primary">Sign up</Button>
-          </Link> */}
       </div>
     </div>
   )

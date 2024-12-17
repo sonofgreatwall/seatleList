@@ -1,0 +1,40 @@
+export type Listing = {
+    available_date: string;
+    price: string;
+    Fulladdress: string;
+    Featured_Image: string;
+    price_change?: string;
+    on_the_market_days?: string;
+    listing_id?: string;
+    sqft?: string;
+    address_id?: string;
+    bathrooms?: string;
+    bedrooms?: string;
+    deal?: string;
+    Deposit_Amount?: string;
+    Lease_Length?: string;
+    apt_name?: string;
+    suburb?: string;
+    distance?: string;
+    listing_website?: string;
+    Social_Medias?: string;
+    Average_Rating?: string;
+    Review_Count?: string;
+    Opening_Hours?: string;
+    Phone?: string;
+    name_contact?: string;
+    email_contact?: string;
+    Website?: string;
+    Email?: string;
+    id?: null;
+    Name?: string;
+    latitude?: string;
+    longitude?: string;
+    price_max?: string;
+    price_min?: string;
+  };
+
+  export type FilterResult = {
+    total_results: number;
+    listings: Listing[];
+  };
