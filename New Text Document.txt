@@ -633,3 +633,27 @@ type Listing = {
   },
   "total_results": 64
 }
+
+
+
+page=0
+page=1
+page=2
+move_in_after=2024-12-12
+what=131
+sqft=
+Neighborhoods=109
+where_city=165
+propertyType=171
+where=165
+when=108
+price_min=900
+Lease_Length=
+Deposit_Amount=
+Credit_Score=
+price_max=2400
+how_much=111
+bedrooms=139
+options=
+sort=l_price
+bathrooms=140

@@ -10,11 +10,63 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
+interface RealEstateFilterProps {
+  cityId: number;
+  setCityId: (id: number) => void;
+  moveInDate: string;
+  setMoveInDate: (date: string) => void;
+  minPrice: number;
+  setMinPrice: (price: number) => void;
+  maxPrice: number;
+  setMaxPrice: (price: number) => void;
+  neighborhoodId: number;
+  setNeighborhoodId: (id: number) => void;
+  propertyType: number;
+  setPropertyType: (type: number) => void;
+  bedrooms: number | undefined;
+  setBedrooms: (type: number) => void;
+}
 
-const RealEstateFilter = () => {
+const RealEstateFilter: React.FC<RealEstateFilterProps> = ({
+  setCityId,
+  setMoveInDate,
+  setMinPrice,
+  setMaxPrice,
+  setNeighborhoodId,
+  propertyType, setPropertyType,
+  setBedrooms,
+}) => {
 
   const [priceRange, setPriceRange] = useState([900, 2500]);
 
+  const handlePriceChange = (range: number[]) => {
+    setPriceRange(range);
+    setMinPrice(range[0]);
+    setMaxPrice(range[1]);
+  };
+
+
+  const handlePropertyTypeChange = (value: string) => {
+    const type = parseInt(value);
+    setPropertyType(isNaN(type) ? 0 : type); // Set default or handle cases for invalid values
+  };
+  const handleBedroomChange = (value: string) => {
+    const type = parseInt(value);
+    setBedrooms(isNaN(type) ? 0 : type); // Set default or handle cases for invalid values
+  };
+
+  const handleNeighborhoodChange = (value: string) => {
+    const id = parseInt(value);
+    setNeighborhoodId(isNaN(id) ? 0 : id); // Similar handling as above
+  };
+
+  const handleCityChange = (value: string) => {
+    const id = parseInt(value);
+    setCityId(isNaN(id) ? 0 : id); // Similar handling as above
+  };
+  const handleMoveInDateChange = (value: string) => {
+    setMoveInDate(value);
+  };
   return (
     <Card className="w-full p-4 space-y-6">
       <div className="flex flex-col sm:flex-row gap-2">
@@ -42,7 +94,7 @@ const RealEstateFilter = () => {
         <label className="text-sm font-medium">Price:</label>
         <Slider
           value={priceRange}
-          onValueChange={setPriceRange}
+          onValueChange={handlePriceChange}
           min={500}
           max={5000}
           step={100}
@@ -57,13 +109,14 @@ const RealEstateFilter = () => {
         <div>
           <label className="text-sm font-medium">Property Type:</label>
           <ToggleGroup
-            type="multiple"
-            defaultValue={["all"]}
+            type="single"
+            value={propertyType.toString()}
+            onValueChange={handlePropertyTypeChange}
             className="flex flex-wrap gap-2 mt-2"
           >
-            {["All", "House", "Apartment", "Condo"].map((type) => (
-              <ToggleGroupItem key={type} value={type.toLowerCase()}>
-                {type}
+            {[{ type: "All", value: "171,172,173" }, { type: "House", value: 171 }, { type: "Apartment", value: 172 }, { type: "Condo", value: 173 }].map((type) => (
+              <ToggleGroupItem key={type.type} value={type.value.toString()}>
+                {type.type}
               </ToggleGroupItem>
             ))}
           </ToggleGroup>
@@ -71,13 +124,13 @@ const RealEstateFilter = () => {
         <div>
           <label className="text-sm font-medium">Bedrooms:</label>
           <ToggleGroup
-            type="multiple"
-            defaultValue={["all"]}
+            type="single"
             className="flex flex-wrap gap-2 mt-2"
+            onValueChange={handleBedroomChange}
           >
-            {["All", 1, 2, 3, 4, "Studio"].map((bed) => (
-              <ToggleGroupItem key={bed} value={String(bed).toLowerCase()}>
-                {bed}
+            {[{ type: "All", value: 139 }, { type: "1", value: 139 }, { type: "2", value: 139 }, { type: "3", value: 139 }, { type: "Studio", value: 139 }].map((bed) => (
+              <ToggleGroupItem key={bed.type} value={String(bed.value).toLowerCase()}>
+                {bed.type}
               </ToggleGroupItem>
             ))}
           </ToggleGroup>
@@ -87,14 +140,14 @@ const RealEstateFilter = () => {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-sm font-medium">City:</label>
-          <Select>
+          <Select onValueChange={handleCityChange} defaultValue="Seattle">
             <SelectTrigger>
               <SelectValue placeholder="Seattle" />
             </SelectTrigger>
             <SelectContent>
-              {["Seattle", "Bellevue", "Tacoma"].map((city) => (
-                <SelectItem key={city} value={city.toLowerCase()}>
-                  {city}
+              {[{ name: "Seattle", value: 165 }, { name: "Bellevue", value: 166 }, { name: "Tacoma", value: 167 }].map((city) => (
+                <SelectItem key={city.name} value={city.value.toString()}>
+                  {city.name}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -102,14 +155,14 @@ const RealEstateFilter = () => {
         </div>
         <div>
           <label className="text-sm font-medium">Neighborhood:</label>
-          <Select>
+          <Select onValueChange={handleNeighborhoodChange} defaultValue="Everywhere">
             <SelectTrigger>
               <SelectValue placeholder="Everywhere" />
             </SelectTrigger>
             <SelectContent>
-              {["Everywhere", "Downtown", "Capitol Hill"].map((neighborhood) => (
-                <SelectItem key={neighborhood} value={neighborhood.toLowerCase()}>
-                  {neighborhood}
+              {[{ type: "Everywhere", value: 109 }, { type: "Downtown", value: 41 }, { type: "Capitol Hill", value: 48 }].map((neighborhood) => (
+                <SelectItem key={neighborhood.type} value={neighborhood.value.toString()} >
+                  {neighborhood.type}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -118,7 +171,7 @@ const RealEstateFilter = () => {
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
-        <Input type="date" placeholder="Move-in Date" />
+        <Input type="date" placeholder="Move-in Date" onChange={(e) => handleMoveInDateChange(e.target.value)} />
         <Select>
           <SelectTrigger>
             <SelectValue placeholder="Term" />

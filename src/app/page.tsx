@@ -17,21 +17,63 @@ const MapComponent = dynamic(() => import("./ui/components/MapComponent"), {
 
 
 export default function Home() {
+  const [moveInDate, setMoveInDate] = useState<string>('2024-12-12');
+  const [propertyType, setPropertyType] = useState<number>(172);
+  const [minPrice, setMinPrice] = useState<number>(900);
+  const [maxPrice, setMaxPrice] = useState<number>(2500);
+  const [neighborhoodId, setNeighborhoodId] = useState<number>(109);
+  const [cityId, setCityId] = useState<number>(165);
+  const [bedrooms, setBedrooms] = useState<number>(139);
+  const [page, setPage] = useState<number>(0);
+
+  const filterProps = {
+    moveInDate, setMoveInDate,
+    minPrice, setMinPrice,
+    maxPrice, setMaxPrice,
+    neighborhoodId, setNeighborhoodId,
+    propertyType, setPropertyType,
+    cityId, setCityId,
+    bedrooms, setBedrooms,
+  };
+  console.log(filterProps);
+  
   const [filterResult, setFilterResult] = useState<FilterResult>({
     total_results: 0,
     listings: [],
   });
 
-  const [page, setPage] = useState<number>(0);
 
+
+  const params = new URLSearchParams({
+    move_in_after: moveInDate,
+    what: '131',
+    sqft: '',
+    Neighborhoods: neighborhoodId.toString(),
+    where_city: cityId.toString(),
+    propertyType: propertyType.toString(),
+    where: '165',
+    when: '108',
+    price_min: minPrice.toString(),
+    Lease_Length: '',
+    Deposit_Amount: '',
+    Credit_Score: '',
+    price_max: maxPrice.toString(),
+    how_much: '111',
+    bedrooms: '139',
+    options: '',
+    sort: 'l_price',
+    bathrooms: '140',
+  });
+
+  console.log(params.toString());
   function filter() {
-    axios.get('https://seattlelisted.com/json/get_json_apartments.php?page=' + page + '&move_in_after=2024-12-12&what=131&sqft=&Neighborhoods=109&where_city=165&propertyType=172&where=165&when=108&price_min=900&Lease_Length=&Deposit_Amount=&Credit_Score=&price_max=2500&how_much=111&bedrooms=139&options=&sort=l_price&bathrooms=140')
+    axios.get('https://seattlelisted.com/json/get_json_apartments.php?page=' + page + '&' + params.toString())
       .then(response => {
         const { total_results, ...data } = response.data;
         setFilterResult({
           total_results,
           listings: Object.values(data),
-          // Assume data has the listings array
+
         });
       })
       .catch(error => {
@@ -42,7 +84,7 @@ export default function Home() {
 
   useEffect(() => {
     filter();
-  }, [page]);
+  }, [page, moveInDate, minPrice, maxPrice, neighborhoodId, propertyType, bedrooms, cityId]);
 
   console.log(filterResult.total_results, filterResult.listings);
 
@@ -87,13 +129,13 @@ export default function Home() {
             </div>
           </div>
         )}
-        <div className="max-w-[1100px] mx-auto">
+        <div className="max-w-[1100px] mx-auto w-full">
           <div className="filter-results-container">
             <div className="filter">
-              <Filter />
+              <Filter cityId={cityId} setCityId={setCityId}  moveInDate={moveInDate} setMoveInDate={setMoveInDate} minPrice={0} setMinPrice={setMinPrice} maxPrice={1000} setMaxPrice={setMaxPrice} neighborhoodId={neighborhoodId} setNeighborhoodId={setNeighborhoodId} propertyType={propertyType} setPropertyType={setPropertyType} bedrooms={bedrooms} setBedrooms={setBedrooms} />
             </div>
             <div className="results">
-              <Results toggleMap={toggleMap} setToggleMap={setToggleMap} filterResult={filterResult} setPage = {setPage} page={page}/>
+              <Results toggleMap={toggleMap} setToggleMap={setToggleMap} filterResult={filterResult} setPage={setPage} page={page} />
             </div>
           </div>
         </div>

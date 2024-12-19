@@ -46,28 +46,15 @@ const RentalCard: React.FC<RentalCardProps> = ({
   Featured_Image,
   price_change,
   on_the_market_days,
-  // listing_id,
-  // sqft,
   bathrooms,
   bedrooms,
-  // Deposit_Amount,
-  // Lease_Length,
-  // apt_name,
-  // suburb,
   distance,
-  // listing_website,
   Average_Rating,
   Review_Count,
   Opening_Hours,
   Phone,
   Website,
   Email,
-  // id,
-  // Name,
-  // latitude,
-  // longitude,
-  // price_max,
-  // price_min,
 }) => {
   return (
     <Card className="flex gap-4 p-4">
@@ -98,13 +85,13 @@ const RentalCard: React.FC<RentalCardProps> = ({
         </CardHeader>
         <CardContent className="flex">
           <div className="p-2 flex flex-col items-start">
-            <p className="py-2 text-sm text-gray-700">Available Date: {available_date}</p>
-            {Opening_Hours && <p className="py-2 text-sm text-gray-700 text-left">Opening hours: <br/><span className="pl-3 inline-block">{Opening_Hours}</span></p>}
-            {price_change && <p className="py-2 text-sm text-gray-700">Price Change: {price_change}</p>}
-            <p className="py-2 text-sm text-gray-700">On the market days: {on_the_market_days}</p>
-            <p className="py-2 text-sm text-gray-700">Distance: {distance}</p>
-            {Phone && <p className="py-2 text-sm text-gray-700">Phone: {Phone}</p>}
-            {Email && <p className="py-2 text-sm text-gray-700">Email: {Email}</p>}
+            <p className="py-2 text-sm text-gray-700"><b>Available Date:</b> {available_date}</p>
+            {Opening_Hours && <p className="py-2 text-sm text-gray-700 text-left"><b>Opening hours:</b> <br /><span className="pl-3 inline-block">{Opening_Hours}</span></p>}
+            {price_change && <p className="py-2 text-sm text-gray-700"><b>Price Change:</b> {price_change}</p>}
+            <p className="py-2 text-sm text-gray-700"><b>On the market days:</b> {on_the_market_days}</p>
+            <p className="py-2 text-sm text-gray-700"><b>Distance: </b>{distance}</p>
+            {Phone && <p className="py-2 text-sm text-gray-700"><b>Phone: </b>{Phone}</p>}
+            {Email && <p className="py-2 text-sm text-gray-700"><b>Email: </b>{Email}</p>}
           </div>
         </CardContent>
       </div>
