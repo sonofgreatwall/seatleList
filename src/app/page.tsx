@@ -17,14 +17,17 @@ const MapComponent = dynamic(() => import("./ui/components/MapComponent"), {
 
 
 export default function Home() {
+  const [what, setWhat] = useState<number>(131);
   const [moveInDate, setMoveInDate] = useState<string>('2024-12-12');
   const [propertyType, setPropertyType] = useState<number>(172);
   const [minPrice, setMinPrice] = useState<number>(900);
   const [maxPrice, setMaxPrice] = useState<number>(2500);
   const [neighborhoodId, setNeighborhoodId] = useState<number>(109);
   const [cityId, setCityId] = useState<number>(165);
-  const [bedrooms, setBedrooms] = useState<number>(139);
+  const [bedroom, setBedroom] = useState<number>(139);
+  const [bathroom, setBathroom] = useState<number>(140);
   const [page, setPage] = useState<number>(0);
+  const [selectedFeature, setSelectedFeature] = useState<string>("cats");
 
   const filterProps = {
     moveInDate, setMoveInDate,
@@ -33,10 +36,13 @@ export default function Home() {
     neighborhoodId, setNeighborhoodId,
     propertyType, setPropertyType,
     cityId, setCityId,
-    bedrooms, setBedrooms,
+    bedroom, setBedroom,
+    bathroom, setBathroom,
+    what, setWhat,
+    selectedFeature, setSelectedFeature,
   };
   console.log(filterProps);
-  
+
   const [filterResult, setFilterResult] = useState<FilterResult>({
     total_results: 0,
     listings: [],
@@ -46,7 +52,7 @@ export default function Home() {
 
   const params = new URLSearchParams({
     move_in_after: moveInDate,
-    what: '131',
+    what: what.toString(),
     sqft: '',
     Neighborhoods: neighborhoodId.toString(),
     where_city: cityId.toString(),
@@ -59,10 +65,10 @@ export default function Home() {
     Credit_Score: '',
     price_max: maxPrice.toString(),
     how_much: '111',
-    bedrooms: '139',
-    options: '',
+    bedrooms: bedroom.toString(),
+    options: selectedFeature,
     sort: 'l_price',
-    bathrooms: '140',
+    bathrooms: bathroom.toString(),
   });
 
   console.log(params.toString());
@@ -84,7 +90,7 @@ export default function Home() {
 
   useEffect(() => {
     filter();
-  }, [page, moveInDate, minPrice, maxPrice, neighborhoodId, propertyType, bedrooms, cityId]);
+  }, [page, moveInDate, minPrice, maxPrice, neighborhoodId, propertyType, bedroom, cityId, selectedFeature,bathroom]);
 
   console.log(filterResult.total_results, filterResult.listings);
 
@@ -132,7 +138,26 @@ export default function Home() {
         <div className="max-w-[1100px] mx-auto w-full">
           <div className="filter-results-container">
             <div className="filter">
-              <Filter cityId={cityId} setCityId={setCityId}  moveInDate={moveInDate} setMoveInDate={setMoveInDate} minPrice={0} setMinPrice={setMinPrice} maxPrice={1000} setMaxPrice={setMaxPrice} neighborhoodId={neighborhoodId} setNeighborhoodId={setNeighborhoodId} propertyType={propertyType} setPropertyType={setPropertyType} bedrooms={bedrooms} setBedrooms={setBedrooms} />
+              <Filter 
+              selectedFeature={selectedFeature} 
+              setSelectedFeature={setSelectedFeature} 
+              whattype={what} setWhat={setWhat} 
+              cityId={cityId} setCityId={setCityId} 
+              moveInDate={moveInDate} 
+              setMoveInDate={setMoveInDate} 
+              minPrice={0} 
+              setMinPrice={setMinPrice} 
+              maxPrice={1000} 
+              setMaxPrice={setMaxPrice} 
+              neighborhoodId={neighborhoodId} 
+              setNeighborhoodId={setNeighborhoodId} 
+              propertyType={propertyType}
+              setPropertyType={setPropertyType} 
+              bedroom={bedroom} 
+              setBedroom={setBedroom}
+              bathroom={bathroom}
+              setBathroom={setBathroom}
+           />
             </div>
             <div className="results">
               <Results toggleMap={toggleMap} setToggleMap={setToggleMap} filterResult={filterResult} setPage={setPage} page={page} />

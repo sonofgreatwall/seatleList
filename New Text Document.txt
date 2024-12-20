@@ -1,245 +1,3 @@
-const rentals = [
-  {
-    thumbnail: "/house/02f2150e-11ac-4211-8cd0-54a095d81858.jpg",
-    address: "1428 Boylston Ave, Seattle, WA 98122",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Best Deal",
-  },
-  {
-    thumbnail: "/house/3ae8cd93-0b52-4a13-b919-37d5442e5141.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/6b561204-78f1-485a-b14a-9fc0c067d5aa.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/18d13bc1-aab4-433a-be80-b675cd1e8046.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/84fcf2fd-34a8-495b-ab5f-fcbbf79b635d.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/607f2296-4565-443f-9ed8-fdc4ee2ab726.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/4958602a-29f9-4b43-8f88-59e82b2eec13.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/5281344f-a2eb-43a0-9a35-a6a9fc7dd9c0.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/b45e04d7-b715-4c38-951e-facba0433bc5.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/b9132be2-e1e8-4690-94f4-a022a38c3312.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/bc99487c-abb9-4f06-8bf0-2ca127097c98.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/e634ef34-16eb-4609-8cb3-d053427f14a0.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/02f2150e-11ac-4211-8cd0-54a095d81858.jpg",
-    address: "1428 Boylston Ave, Seattle, WA 98122",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Best Deal",
-  },
-  {
-    thumbnail: "/house/3ae8cd93-0b52-4a13-b919-37d5442e5141.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/6b561204-78f1-485a-b14a-9fc0c067d5aa.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/18d13bc1-aab4-433a-be80-b675cd1e8046.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/84fcf2fd-34a8-495b-ab5f-fcbbf79b635d.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/607f2296-4565-443f-9ed8-fdc4ee2ab726.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/4958602a-29f9-4b43-8f88-59e82b2eec13.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/5281344f-a2eb-43a0-9a35-a6a9fc7dd9c0.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/b45e04d7-b715-4c38-951e-facba0433bc5.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/b9132be2-e1e8-4690-94f4-a022a38c3312.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/bc99487c-abb9-4f06-8bf0-2ca127097c98.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-  {
-    thumbnail: "/house/e634ef34-16eb-4609-8cb3-d053427f14a0.jpg",
-    address: "315 Maynard Ave S, Seattle, WA 98104",
-    rent: 995,
-    description: "Deposit $746, $50 App. Fee",
-    ratings: { google: "Google Rating: 5", trusty: "Trusty Rating: 4.6"
-    },
-    status: "$500 above avg",
-    deal: "Limited Offer",
-  },
-];
 
 
 
@@ -636,6 +394,10 @@ type Listing = {
 
 
 
+https: //seattlelisted.com/json/get_json_apartments.php?page=0&page=1&page=2&move_in_after=2024-12-12&what=131&sqft=&Neighborhoods=109&where_city=165&propertyType=171&where=165&when=108&price_min=900&Lease_Length=&Deposit_Amount=&Credit_Score=&price_max=2400&how_much=111&bedrooms=139&options=&sort=l_price&bathrooms=140
+
+
+https: //seattlelisted.com/json/get_json_apartments.php?
 page=0
 page=1
 page=2
@@ -657,3 +419,133 @@ bedrooms=139
 options=
 sort=l_price
 bathrooms=140
+
+
+
+
+https://seattlelisted.com/json/mobile/filter_overview.php
+{
+  "what": {
+    "131": "For Rent",
+    "130": "For Sale",
+    "135": "Landlord Reviews",
+    "132": "Roommates Wanted" 
+  },
+  "price_max": "5000",
+  "price_min": "450",
+  "propertyType": {
+    "172": "0All",
+    "170": "House",
+    "171": "Apartment",
+    "173": "Condo",
+    "174": "Houseboat",
+    "175": "Townhouse",
+    "176": "Boat"
+  },
+  "bedrooms": {
+    "139": "0All",
+    "163": "Studio",
+    "138": "1",
+    "141": "2",
+    "142": "3",
+    "143": "4"
+  },
+  "bathrooms": {
+    "140": "0All",
+    "137": ".5",
+    "144": "1",
+    "145": "1.5",
+    "146": "2",
+    "164": "3"
+  },
+  "where_city": {
+    "165": "Seattle",
+    "166": "Bellevue",
+    "167": "Tacoma",
+    "168": "Everett",
+    "178": "Redmond"
+  },
+  "where_neighborhoods": {
+    "40": "Queen-Anne",
+    "41": "Fremont",
+    "42": "Uptown",
+    "43": "Pioneer-Square",
+    "44": "University-of-Washington",
+    "45": "SODO",
+    "46": "University-District",
+    "47": "Downtown-Seattle",
+    "48": "First-Hill",
+    "49": "Adams",
+    "50": "Highline",
+    "51": "Rainier-Valley",
+    "52": "Greater-Duwamish",
+    "53": "South-Lake-Union",
+    "54": "Northgate",
+    "55": "Richmond-Highlands",
+    "56": "Loyal-Heights",
+    "57": "Greenwood",
+    "58": "Green-Lake",
+    "59": "Woodland-Park-Avenue-North",
+    "60": "Phinney-Ridge",
+    "61": "Crown-Hill",
+    "62": "Victory-Heights",
+    "63": "Wedgwood",
+    "64": "Whitman-Avenue-North",
+    "65": "Maple-Leaf",
+    "66": "Ballard",
+    "67": "West-Woodland",
+    "68": "Magnolia",
+    "69": "Southeast-Magnolia",
+    "70": "King-County",
+    "71": "Interbay",
+    "72": "North-Queen-Anne",
+    "73": "Thorndyke-Avenue-West",
+    "74": "Brighton",
+    "76": "Rainier-Vista",
+    "77": "Dunlap",
+    "78": "Rainier-Beach",
+    "79": "West-Seattle",
+    "80": "Mount-Baker",
+    "81": "Mid-Beacon-Hill",
+    "82": "North-Admiral",
+    "83": "Fairmount-Park",
+    "84": "Delridge-Way-Southwest",
+    "85": "High-Point",
+    "86": "Fauntleroy-Way-Southwest",
+    "87": "New-Holly",
+    "88": "Junction",
+    "89": "2nd-Avenue",
+    "90": "Yesler-Terrace",
+    "91": "6th-Avenue-South",
+    "92": "Central-District",
+    "93": "University-Heights",
+    "94": "7th-Avenue-Northeast",
+    "95": "University-Way-Northeast",
+    "96": "Ravenna",
+    "97": "Northeast-Blakeley-Street",
+    "98": "Roosevelt",
+    "99": "Capitol-Hill",
+    "100": "Bellevue-Avenue-East",
+    "101": "Stevens",
+    "102": "Miller-Park",
+    "103": "12th-Avenue",
+    "104": "East-Queen-Anne",
+    "105": "West-Queen-Anne",
+    "106": "Minor",
+    "109": "0Everywhere"
+  },
+  "metro": "Seattle",
+  "options": [
+    "Cats",
+    "Dogs",
+    "Balcony",
+    "Parking",
+    "MFTE"
+  ],
+  "sort": [
+    "Lowest Price",
+    "Highest Price",
+    "Highest TS",
+    "Lowest TS"
+  ]
+}
